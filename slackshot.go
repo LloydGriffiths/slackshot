@@ -59,7 +59,7 @@ func (h *Webhook) Send(p *Payload) error {
 	}
 	defer r.Body.Close()
 
-	if r.StatusCode != 200 {
+	if r.StatusCode != http.StatusOK {
 		return fmt.Errorf("unknown slack error: %s", r.Status)
 	}
 
