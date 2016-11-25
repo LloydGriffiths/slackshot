@@ -31,7 +31,7 @@ type attachment struct {
 	Text      string   `json:"text"`
 }
 
-type slackAttachments struct {
+type attachments struct {
 	Attachments []*attachment `json:"attachments"`
 }
 
@@ -45,7 +45,7 @@ func (m *Message) String() string {
 
 // Send sends a payload to a webhook.
 func (h *Webhook) Send(p *Payload) error {
-	b, err := json.Marshal(&slackAttachments{[]*attachment{{p.Colour, []string{"text"}, p.Message.String()}}})
+	b, err := json.Marshal(&attachments{[]*attachment{{p.Colour, []string{"text"}, p.Message.String()}}})
 	if err != nil {
 		return err
 	}
