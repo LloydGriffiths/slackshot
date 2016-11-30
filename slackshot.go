@@ -36,7 +36,7 @@ type attachments struct {
 }
 
 func (m *Message) String() string {
-	if len(m.Summary) > 1 {
+	if len(m.Summary) > 0 {
 		return fmt.Sprintf("%s\n%s", m.Headline, m.Summary)
 	}
 
